@@ -1,0 +1,10 @@
+type DaoEntity @entity {
+  id: ID!
+  tokenAddress: Bytes!
+  owner: Bytes!
+  createdAt: BigInt!
+  tokenName: String!
+  tokenSymbol: String!
+  totalSupply: BigInt!
+  ownerInitialSupply: BigInt!
+}

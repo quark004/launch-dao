@@ -1,0 +1,24 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: LaunchTokenFactory
+    network: ropsten
+    source:
+      address: "0xAFF6E370b9272FCe950D2156A47fFB81d522a99d"
+      abi: LaunchTokenFactory
+      startBlock: 11861373
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - DAOLaunched
+      abis:
+        - name: LaunchTokenFactory
+          file: ./abis/LaunchTokenFactory.json
+      eventHandlers:
+        - event: DAOLaunched(address,address,uint256,string,string,uint256,uint256)
+          handler: handleDAOLaunched
+      file: ./src/mapping.ts
